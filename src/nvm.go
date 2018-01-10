@@ -113,8 +113,18 @@ func main() {
         saveSettings()
       }
     case "update": update()
-    case "node_mirror": setNodeMirror(detail)
-    case "npm_mirror": setNpmMirror(detail)
+    case "node_mirror": 
+      if detail == "" {
+        fmt.Println("Current node mirror: "+env.node_mirror)
+      } else {
+        setNodeMirror(detail)
+      }
+    case "npm_mirror": 
+      if detail == "" {
+        fmt.Println("Current npm mirror: "+env.npm_mirror)
+      } else {
+        setNpmMirror(detail)
+      }
     default: help()
   }
 }
